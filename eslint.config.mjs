@@ -1,3 +1,4 @@
+// eslint.config.js
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
@@ -10,7 +11,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // Separate object for global ignores
   {
     ignores: [
       "node_modules/**",
@@ -18,8 +19,10 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "src/app/generated/prisma/wasm.js", // Add the Prisma WASM file here
     ],
   },
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
 export default eslintConfig;
