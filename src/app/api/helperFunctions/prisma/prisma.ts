@@ -1,6 +1,6 @@
 // utils/prisma.ts
 //../src/app/generated/prisma
-import { PrismaClient } from "../../../../generated/prisma/client";
+import { PrismaClient } from "../../../../generated/prisma";
 
 const prismaClientSingleton = () => {
   return new PrismaClient();
