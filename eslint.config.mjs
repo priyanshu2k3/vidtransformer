@@ -11,15 +11,16 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  // Separate object for global ignores
   {
+    // Place global ignores in a separate object
     ignores: [
       "node_modules/**",
       ".next/**",
       "out/**",
       "build/**",
       "next-env.d.ts",
-      "src/app/generated/prisma/wasm.js", // Add the Prisma WASM file here
+      // Ignore the entire generated Prisma directory
+      "src/app/generated/prisma/**",
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
